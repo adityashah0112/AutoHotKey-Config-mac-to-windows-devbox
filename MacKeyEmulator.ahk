@@ -60,11 +60,17 @@ InstallKeybdHook
 ; 3) DELETION (MAC-LIKE)
 ; =========================================================
 
-!Backspace::Send "^+{Left}{Backspace}"
+; Option + Backspace = delete previous word
+!Backspace::Send "^{Backspace}"
+
+; Option + Delete / Option + Fn + Backspace = delete next word
+!Delete::Send "^{Delete}"
+
+; Command + Backspace = delete to beginning of line
 #Backspace::Send "+{Home}{Backspace}"
 
-!Delete::Send "^+{Right}{Backspace}"
-#Delete::Send "+{End}{Backspace}"
+; Command + Delete = delete to end of line
+#Delete::Send "+{End}{Delete}"
 
 ; =========================================================
 ; 4) COMMAND SHORTCUTS (⌘ → Ctrl)
@@ -143,8 +149,6 @@ InstallKeybdHook
 ; =========================================================
 ; 9) MISC
 ; =========================================================
-
-!BS::Send "{Delete}"
 
 ; =========================================================
 ; 10) BASE REMAP (IMPORTANT)
